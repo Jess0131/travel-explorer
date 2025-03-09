@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Explorer - Discover Amazing Destinations</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>">
+    
+    <!-- Reset CSS for consistent cross-browser styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@3.0.0/reset.min.css" />
+    
+    <!-- Third-party library CSS: Glide.js, Leaflet, AOS -->
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="node_modules/aos/dist/aos.css">
+    
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header: Navigation and country selection -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <!-- SVG logo: world travel icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
+                    <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"></path>
+                    <path d="M7 3.34V5a3 3 0 0 0 3 3h0a2 2 0 0 1 2 2v0c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2v0c0-1.1.9-2 2-2h3.17"></path>
+                    <path d="M11 21.95V18a2 2 0 0 0-2-2v0a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"></path>
+                    <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                <span>Travel Explorer</span>
+            </div>
+            <!-- Country navigation buttons -->
+            <div class="nav-links">
+                <button class="nav-btn active" data-country="italy">Italy</button>
+                <button class="nav-btn" data-country="mexico">Mexico</button>
+                <button class="nav-btn" data-country="korea">Korea</button>
+                <button class="nav-btn" data-country="turkey">Turkey</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero section: Dynamic country showcase with AOS animation -->
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Discover Italy</h1>
+            <p>Experience the beauty, history, and culture of Italy's most enchanting destinations</p>
+            <button class="cta-button">Start Exploring</button>
+        </div>
+    </section>
+
+    <!-- Main content containing all feature sections -->
+    <main class="main-content">
+        <!-- Featured Destinations: Glide.js carousel implementation -->
+        <section class="destinations-section" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Featured Destinations</h2>
+                <p>Explore the most beautiful places and experiences</p>
+            </div>
+            <div class="glide-carousel">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides" id="destinations-slides">
+                        <!-- Slides will be dynamically inserted via JavaScript -->
+                    </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <div class="glide__bullets" data-glide-el="controls[nav]">
+                    <!-- Bullets will be dynamically inserted via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Map and Climate Section: Leaflet map and D3.js charts -->
+        <section class="explore-section">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Explore <span id="map-country-name">Italy</span></h2>
+                <p>Discover key destinations and travel insights</p>
+            </div>
+            
+            <div class="explore-grid">
+                <!-- Map container: Leaflet interactive map -->
+                <div class="map-container" data-aos="fade-right">
+                    <div id="map"></div>
+                </div>
+                
+                <!-- Climate Charts: D3.js data visualizations -->
+                <div class="climate-container" data-aos="fade-left">
+                    <h3>Climate & Tourism</h3>
+                    <p>Plan your trip with the latest climate and tourism data</p>
+                    
+                    <div class="chart-container" data-aos="zoom-in">
+                        <h4>Average Temperature by Month</h4>
+                        <div id="temperature-chart"></div>
+                    </div>
+                    
+                    <div class="chart-container" data-aos="zoom-in">
+                        <h4>Tourism Popularity by Month</h4>
+                        <div id="tourism-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Tips: Country-specific advice with AOS animations -->
+        <section class="tips-section">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Travel Tips</h2>
+                <p>Essential advice for your journey</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card" data-aos="flip-left">
+                    <div class="tip-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Best Time to Visit</h3>
+                    <p id="best-time-tip">Spring (April-May) and early Fall (September-October) offer pleasant weather and fewer crowds in Italy.</p>
+                </div>
+
+                <div class="tip-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="tip-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <path d="M12 4v16"></path>
+                            <path d="M2 9h20"></path>
+                            <path d="M2 14h20"></path>
+                        </svg>
+                    </div>
+                    <h3>Currency & Budget</h3>
+                    <p id="currency-tip">Italy uses the Euro (€). Budget €50-100 per day for mid-range travel, excluding accommodation.</p>
+                </div>
+
+                <div class="tip-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="tip-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 11a9 9 0 0 1 9 9"></path>
+                            <path d="M4 4a16 16 0 0 1 16 16"></path>
+                            <circle cx="5" cy="19" r="1"></circle>
+                        </svg>
+                    </div>
+                    <h3>Local Customs</h3>
+                    <p id="local-customs-tip">Italians appreciate greetings before transactions. Learn basic phrases like "Buongiorno" (good day) and "Grazie" (thank you).</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Travel Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Third-party JavaScript libraries - positioned right before closing body tag as required -->
+    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script src="node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="node_modules/aos/dist/aos.js"></script>
+    <script src="node_modules/d3/dist/d3.min.js"></script>
+    
+    <!-- Custom JavaScript - positioned last -->
+    <script src="js/main.js"></script>
+</body>
+</html>

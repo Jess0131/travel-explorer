@@ -1,0 +1,27 @@
+{
+  "name": "travel-explorer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Jess0131@github.com/Jess0131/travel-explorer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jess0131/travel-explorer/issues"
+  },
+  "homepage": "https://github.com/Jess0131/travel-explorer#readme",
+  "dependencies": {
+    "@glidejs/glide": "^3.7.1",
+    "aos": "^2.3.4",
+    "d3": "^7.9.0",
+    "leaflet": "^1.9.4",
+    "lite-server": "^2.6.1"
+  }
+}
